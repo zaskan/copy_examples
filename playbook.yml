@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+
+  - name: Copy file using sync module
+    ansible.posix.synchronize:
+      src: file.txt
+      dest: /tmp/file_using_syncronize.txt
+    
