@@ -3,22 +3,21 @@
   tasks:
   
     - name: Get info
-      shell: export
-      environment:
-        ansible_user: "{{ sftp_user }}"
-        ansible_password: "{{ sftp_pass }}"
+      shell: hostname
       register: whoami
   
     - debug: msg="{{ whoami }}"
     
     - name: Fetch files
-      ansible.builtin.fetch:
-        src: sftp_file.txt
-        dest: sftp_file.txt
+      shell: hostname
       vars:
         ansible_become: yes
         ansible_become_method: sudo
         ansible_become_user: "{{ sftp_user }}"
         ansible_become_passwword: "{{ sftp_pass }}"
       delegate_to: SFTP
+      register: host_name
+      
+    - debug: msg="{{ host_name }}"
+      
         
