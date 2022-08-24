@@ -5,5 +5,6 @@
 
   - name: Copy file using sync module
     ansible.posix.synchronize:
-      src: file.txt
-      dest: /tmp/file_using_syncronize.txt
+      src: /tmp/sftp_file.txt
+      dest: /tmp/sftp_file_definitive.txt
+    delegate_to: localhost
