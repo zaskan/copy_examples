@@ -7,20 +7,3 @@
     ansible.posix.synchronize:
       src: file.txt
       dest: /tmp/file_using_syncronize.txt
-    
-  - name: Copy file using sync module in the remote server
-    ansible.posix.synchronize:
-      src: /tmp/file_using_syncronize.txt
-      dest: /tmp/file_using_syncronize_remote.txt
-    delegate_to: 192.168.122.161
-
-  - name: Copy file using copy module
-    ansible.builtin.synchronize:
-      src: file.txt
-      dest: /tmp/file_using_copy.txt
-
-  - name: Fetch file from server
-    ansible.builtin.fetch:
-      src: /tmp/file_using_copy.txt
-      dest: file_fetched.txt
-
