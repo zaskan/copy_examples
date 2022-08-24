@@ -1,24 +1,18 @@
 - name: Copy a file between remote hosts
-  hosts: all
+  hosts: Production
   gather_facts: no
   tasks:
   
-    - name: Get info
-      shell: hostname
-      register: whoami
-      delegate_to: Production
-  
-    - debug: msg="{{ whoami }}"
-    
     - name: Fetch files
       shell: hostname
       vars:
         ansible_become: yes
         ansible_become_method: sudo
+        ansible_host: SFTP
         ansible_become_user: "{{ sftp_user }}"
         ansible_become_passwword: "{{ sftp_pass }}"
-      delegate_to: SFTP
-      register: host_name
+       register: host_name
+       delegate_to: localhost
       
     - debug: msg="{{ host_name }}"
       
