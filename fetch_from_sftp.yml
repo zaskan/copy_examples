@@ -1,5 +1,5 @@
 - name: Copy a file between remote hosts
-  hosts: sftp
+  hosts: all
   gather_facts: no
   tasks:
   
