@@ -1,5 +1,6 @@
 - name: Copy a file between remote hosts
   hosts: Production
+  remote_user: "{{ sftp_user }}"
   gather_facts: no
   tasks:
   
@@ -9,10 +10,8 @@
         ansible_become: yes
         ansible_become_method: sudo
         ansible_host: SFTP
-        ansible_become_user: "{{ sftp_user }}"
         ansible_become_passwword: "{{ sftp_pass }}"
       register: host_name
-      delegate_to: localhost
       
     - debug: msg="{{ host_name }}"
       
