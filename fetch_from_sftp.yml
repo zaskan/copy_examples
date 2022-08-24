@@ -1,4 +1,5 @@
   - name: Fetch file from server
     ansible.builtin.fetch:
-      src: /tmp/file_using_copy.txt
-      dest: file_fetched.txt
+      src: /tmp/sftp_file.txt
+      dest: /tmp/sftp_file.txt
+    delegate_to: localhost
