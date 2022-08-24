@@ -1,6 +1,5 @@
 - name: Copy a file between remote hosts
   gather_facts: no
-  hosts: Production
   tasks:
   
     - name: Get info
