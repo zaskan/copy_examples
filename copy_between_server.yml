@@ -1,9 +1,9 @@
 - name: Copy a file between remote hosts
-  hosts: 192.168.122.195
+  hosts: Production
   tasks:
     - name: Copy the file from SFTP to Production server using Method Push
       synchronize:
         src: sftp_file.txt
         dest: sftp_file.txt
         mode: push
-      delegate_to: 192.168.122.195
+      delegate_to: SFTP
