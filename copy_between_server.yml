@@ -1,4 +1,5 @@
 - name: Copy a file between remote hosts
+  gather_facts: no
   hosts: Production
   tasks:
     - name: Copy the file from SFTP to Production server using Method Push
