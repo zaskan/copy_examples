@@ -11,4 +11,15 @@
       register: whoami
   
     - debug: msg="{{ whoami }}"
+    
+    - name: Fetch files
+      ansible.builtin.fetch:
+        src: sftp_file.txt
+        dest: sftp_file.txt
+      vars:
+        ansible_become: yes
+        ansible_become_method: sudo
+        ansible_become_user: "{{ sftp_user }}"
+        ansible_become_passwword: "{{ sftp_pass }}"
+      delegate_to: SFTP
         
