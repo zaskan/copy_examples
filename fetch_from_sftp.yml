@@ -1,3 +1,8 @@
+- name: Copy a file between remote hosts
+  hosts: sftp
+  gather_facts: no
+  tasks:
+  
   - name: Fetch file from server
     ansible.builtin.fetch:
       src: /tmp/sftp_file.txt
