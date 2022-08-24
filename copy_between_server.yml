@@ -2,9 +2,12 @@
   gather_facts: no
   hosts: Production
   tasks:
-    - name: Copy the file from SFTP to Production server using Method Push
-      synchronize:
-        src: sftp_file.txt
-        dest: sftp_file.txt
-        mode: push
-      delegate_to: SFTP
+  
+    - name: Get info
+      shell: export
+      register: whoami
+  
+    - debug:
+        msg: "{{ whoami }}"
+      
+        
