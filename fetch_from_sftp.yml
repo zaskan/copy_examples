@@ -1,0 +1,4 @@
+  - name: Fetch file from server
+    ansible.builtin.fetch:
+      src: /tmp/file_using_copy.txt
+      dest: file_fetched.txt
