@@ -5,14 +5,10 @@
   
     - name: Get info
       shell: export
-      register: whoami
-  
-    - name: Synchronize two directories on one remote host.
-      ansible.posix.synchronize:
-        src: sftp_file.txt
-        dest: sftp_file.txt
       environment:
         ansible_user: "{{ sftp_user }}"
         ansible_password: "{{ sftp_pass }}"
-      delegate_to: SFTP
+      register: whoami
+  
+    - debug: msg="{{ whoami }}"
         
