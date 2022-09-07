@@ -11,6 +11,7 @@
        fetch: 
          src: /tmp/file.txt 
          dest: /tmp/file.txt 
+         flat: yes
        when: inventory_hostname == "sftp"
 
      - name: Copy the file to the prod server
