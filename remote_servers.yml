@@ -13,6 +13,7 @@
          src: /tmp/file.txt 
          dest: file.txt 
        when: inventory_hostname == "sftp"
+       become: yes
 
      - name: Copy the file to the prod server
        copy: 
