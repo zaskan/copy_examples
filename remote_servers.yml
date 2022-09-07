@@ -10,11 +10,11 @@
      - name: Fetch a file
        fetch: 
          src: /tmp/file.txt 
-         dest: file.txt 
+         dest: /tmp/file.txt 
        when: inventory_hostname == "sftp"
 
      - name: Copy the file to the prod server
        copy: 
-         src: file.txt 
-         dest: file.txt
+         src: /tmp/file.txt 
+         dest: /tmp/file.txt
        when: inventory_hostname == "prod"
