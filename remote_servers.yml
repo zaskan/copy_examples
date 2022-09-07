@@ -12,12 +12,10 @@
        fetch: 
          src: /tmp/file.txt 
          dest: file.txt 
-       when: inventory_hostname == "sftp"
-       become: yes
+       delegate_to: localhost
 
      - name: Copy the file to the prod server
        copy: 
          src: file.txt 
          dest: file.txt
        when: inventory_hostname == "prod"
-       become: yes
