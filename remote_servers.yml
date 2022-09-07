@@ -1,0 +1,23 @@
+---
+ - hosts: all
+   tasks:
+     - name: Create file
+       file:
+         path: /tmp/file.txt
+         state: touch
+       when: inventory_hostname == "sftp"
+       become: yes
+       
+     - name: Fetch a file
+       fetch: 
+         src: /tmp/file.txt 
+         dest: file.txt 
+       when: inventory_hostname == "sftp"
+       become: yes
+
+     - name: Copy the file to the prod server
+       copy: 
+         src: file.txt 
+         dest: file.txt
+       when: inventory_hostname == "prod"
+       become: yes
