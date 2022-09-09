@@ -5,17 +5,17 @@
        file:
          path: /tmp/file.txt
          state: touch
-       when: "'sftp_servers'" in group_names"
+       when: "'sftp_servers' in group_names"
        
      - name: Fetch a file
        fetch: 
          src: /tmp/file.txt 
          dest: /tmp/file.txt 
          flat: yes
-       when: "'sftp_servers'" in group_names"
+       when: "'sftp_servers' in group_names"
 
      - name: Copy the file to the prod server
        copy: 
          src: /tmp/file.txt 
          dest: /tmp/file.txt
-       when: "'production'" in group_names"
+       when: "'production' in group_names"
