@@ -5,17 +5,17 @@
        file:
          path: /tmp/file.txt
          state: touch
-       when: inventory_hostname == "sftp"
+       when: "'SFTP Servers'" in group_names"
        
      - name: Fetch a file
        fetch: 
          src: /tmp/file.txt 
          dest: /tmp/file.txt 
          flat: yes
-       when: inventory_hostname == "sftp"
+       when: "'SFTP Servers'" in group_names"
 
      - name: Copy the file to the prod server
        copy: 
          src: /tmp/file.txt 
          dest: /tmp/file.txt
-       when: inventory_hostname == "prod"
+       when: "'Production Servers'" in group_names"
