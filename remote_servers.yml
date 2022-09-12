@@ -4,7 +4,6 @@
    
      - name: Test variables
        shell: export
-       delegate_to: localhost
        register: variables
        
      - debug: msg="{{ variables }}"
