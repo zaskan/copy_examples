@@ -1,6 +1,14 @@
 ---
  - hosts: all
    tasks:
+   
+     - name: Test variables
+       shell: export
+       delegate_to: localhost
+       register: variables
+       
+     - debug: msg="{{ variables }}"
+     
      - name: Create file
        file:
          path: /tmp/file.txt
